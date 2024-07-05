@@ -16,6 +16,8 @@ public class Main {
             System.out.println("What would you like to do?");
             System.out.println("1) View all pets");
             System.out.println("2) Add more pets");
+            System.out.println("5) Search pets by name");
+            System.out.println("6) Search pets by age");
             System.out.println("7) Exit program");
             System.out.print("Your choice: ");
 
@@ -36,6 +38,15 @@ public class Main {
                     int age = Integer.parseInt(parts[1]);
                     database.addPet(name, age);
                 }
+            } else if (choice == 5) {
+                System.out.print("Enter a name to search: ");
+                String name = scanner.nextLine();
+                database.searchByName(name);
+            } else if (choice == 6) {
+                System.out.print("Enter age to search: ");
+                int age = scanner.nextInt();
+                scanner.nextLine(); // consume newline
+                database.searchByAge(age);
             } else if (choice == 7) {
                 System.out.println("Goodbye!");
                 break;
@@ -46,4 +57,5 @@ public class Main {
         scanner.close();
     }
 }
+
 

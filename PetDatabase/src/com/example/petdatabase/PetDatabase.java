@@ -4,10 +4,54 @@
  */
 package com.example.petdatabase;
 
-/**
- *
- * @author joshu
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class PetDatabase {
-    
+    private List<Pet> pets;
+
+    public PetDatabase() {
+        this.pets = new ArrayList<>();
+    }
+
+    public void addPet(String name, int age) {
+        pets.add(new Pet(name, age));
+    }
+
+    public void displayPets() {
+        System.out.printf("+----------------------+\n");
+        System.out.printf("| %-3s | %-10s | %-4s |\n", "ID", "NAME", "AGE");
+        System.out.printf("+----------------------+\n");
+        for (int i = 0; i < pets.size(); i++) {
+            System.out.printf("| %-3d | %s |\n", i, pets.get(i));
+        }
+        System.out.printf("+----------------------+\n");
+        System.out.printf("%d rows in set.\n", pets.size());
+    }
+
+    public void searchByName(String name) {
+        System.out.printf("+----------------------+\n");
+        System.out.printf("| %-3s | %-10s | %-4s |\n", "ID", "NAME", "AGE");
+        System.out.printf("+----------------------+\n");
+        for (int i = 0; i < pets.size(); i++) {
+            if (pets.get(i).getName().equalsIgnoreCase(name)) {
+                System.out.printf("| %-3d | %s |\n", i, pets.get(i));
+            }
+        }
+        System.out.printf("+----------------------+\n");
+    }
+
+    public void searchByAge(int age) {
+        System.out.printf("+----------------------+\n");
+        System.out.printf("| %-3s | %-10s | %-4s |\n", "ID", "NAME", "AGE");
+        System.out.printf("+----------------------+\n");
+        for (int i = 0; i < pets.size(); i++) {
+            if (pets.get(i).getAge() == age) {
+                System.out.printf("| %-3d | %s |\n", i, pets.get(i));
+            }
+        }
+        System.out.printf("+----------------------+\n");
+    }
 }
+
+
