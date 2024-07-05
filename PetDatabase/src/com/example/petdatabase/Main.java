@@ -16,6 +16,8 @@ public class Main {
             System.out.println("What would you like to do?");
             System.out.println("1) View all pets");
             System.out.println("2) Add more pets");
+            System.out.println("3) Update an existing pet");
+            System.out.println("4) Remove an existing pet");
             System.out.println("5) Search pets by name");
             System.out.println("6) Search pets by age");
             System.out.println("7) Exit program");
@@ -38,6 +40,21 @@ public class Main {
                     int age = Integer.parseInt(parts[1]);
                     database.addPet(name, age);
                 }
+            } else if (choice == 3) {
+                database.displayPets();
+                System.out.print("Enter the pet ID to update: ");
+                int id = scanner.nextInt();
+                scanner.nextLine(); // consume newline
+                System.out.print("Enter new name and new age: ");
+                String newName = scanner.next();
+                int newAge = scanner.nextInt();
+                database.updatePet(id, newName, newAge);
+            } else if (choice == 4) {
+                database.displayPets();
+                System.out.print("Enter the pet ID to remove: ");
+                int id = scanner.nextInt();
+                scanner.nextLine(); // consume newline
+                database.removePet(id);
             } else if (choice == 5) {
                 System.out.print("Enter a name to search: ");
                 String name = scanner.nextLine();
@@ -57,5 +74,6 @@ public class Main {
         scanner.close();
     }
 }
+
 
 

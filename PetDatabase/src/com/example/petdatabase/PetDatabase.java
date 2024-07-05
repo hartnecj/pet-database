@@ -52,6 +52,24 @@ public class PetDatabase {
         }
         System.out.printf("+----------------------+\n");
     }
+
+    public void updatePet(int id, String newName, int newAge) {
+        if (id >= 0 && id < pets.size()) {
+            pets.get(id).setName(newName);
+            pets.get(id).setAge(newAge);
+        } else {
+            System.out.println("Invalid ID.");
+        }
+    }
+
+    public void removePet(int id) {
+        if (id >= 0 && id < pets.size()) {
+            pets.remove(id);
+        } else {
+            System.out.println("Invalid ID.");
+        }
+    }
 }
+
 
 
