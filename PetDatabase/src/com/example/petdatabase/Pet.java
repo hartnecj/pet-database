@@ -31,7 +31,8 @@ public class Pet {
 
     @Override
     public String toString() {
-        return String.format("%-10s | %-4d", name, age);
+        return name + " " + age;
     }
 }
+
 
